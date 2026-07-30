@@ -40,7 +40,15 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: siteConfig.name }],
   alternates: { canonical: "/" },
-  robots: { index: true, follow: true },
+  // Zolang `siteConfig.indexable` false is, vragen we zoekmachines de site niet
+  // te indexeren. Zet de schakelaar in src/config/site.ts op true bij livegang.
+  robots: siteConfig.indexable
+    ? { index: true, follow: true }
+    : {
+        index: false,
+        follow: false,
+        googleBot: { index: false, follow: false },
+      },
   openGraph: {
     type: "website",
     locale: siteConfig.locale,

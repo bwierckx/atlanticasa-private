@@ -23,6 +23,13 @@ export const siteConfig = {
   locale: "nl_NL",
   language: "nl",
 
+  /**
+   * Zoekmachine-zichtbaarheid. Zet op `true` wanneer de site definitief live mag
+   * en door Google gevonden mag worden. Zolang dit `false` is, wordt de site
+   * niet geïndexeerd (ideaal voor een besloten preview / werk-in-uitvoering).
+   */
+  indexable: false,
+
   /** Contactgegevens — centraal aanpasbaar. */
   contact: {
     email: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "private@atlanticasa.com",
