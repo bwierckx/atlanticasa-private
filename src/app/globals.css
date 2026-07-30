@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+
+  body {
+    @apply bg-cream text-ink font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-clay/20 text-ink;
+  }
+
+  /* Toegankelijke focusstaat als basis. */
+  :focus-visible {
+    @apply outline-none;
+  }
+}
+
+@layer components {
+  .hairline {
+    @apply h-px w-full bg-line;
+  }
+
+  .eyebrow {
+    @apply text-xs font-medium uppercase tracking-widest2 text-clay;
+  }
+
+  /* Subtiele beeldzoom bij hover — maximaal enkele procenten. */
+  .img-zoom {
+    @apply overflow-hidden;
+  }
+  .img-zoom img {
+    @apply transition-transform duration-[1200ms] ease-editorial;
+  }
+  .img-zoom:hover img {
+    transform: scale(1.04);
+  }
+}
+
+/* Verbergt de skip-link tot deze focus krijgt. */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 100;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}

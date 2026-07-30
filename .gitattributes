@@ -1,0 +1,12 @@
+# Normaliseer regeleindes: consistent op alle systemen (Windows/Linux/Vercel).
+* text=auto eol=lf
+
+# Binaire bestanden nooit aanraken.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.avif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
